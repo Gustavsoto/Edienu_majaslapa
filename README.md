@@ -1,2 +1,2 @@
 # Edienu_majaslapa
-HTML/bootstrap mājas lapa par ēdieniem
+HTML/bootstrap mājaslapa par ēdieniem
