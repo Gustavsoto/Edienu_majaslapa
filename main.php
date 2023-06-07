@@ -480,9 +480,14 @@ session_start();
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
               <div>
-                <button>Nosūtīt</button>
+                <button id="submitBtn">Nosūtīt</button>
               </div>
           </form>
+          <script>
+            document.getElementById('submitBtn').addEventListener('click', function() {
+              alert('Paldies par jūsu viedokli');
+            });
+          </script>
         </div>
         <footer class="bg-light text-center text-lg-start">
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
