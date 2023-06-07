@@ -11,16 +11,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
 
-    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+    $query = "SELECT * FROM users WHERE user_name = '$user_name' LIMIT 1";
+    $result = mysqli_query($con, $query);
 
-        //saglabā datubāzē
+    if (mysqli_num_rows($result) > 0) {
+
+        $error = "Šis lietotājs jau eksistē";
+
+    } elseif (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+
         $user_id = random_num(20);
-        $query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+        $query = "INSERT INTO users (user_id, user_name, password) VALUES ('$user_id', '$user_name', '$password')";
 
         if (mysqli_query($con, $query)) {
+
             header("Location: login.php");
             die;
+
         } else {
+
             $error = "Notika kļūme veidojot jaunu profilu.";
         }
     } else {
@@ -88,6 +97,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             margin-top: 10px;
         }
     </style>
+    
+    <script>
+    function PopupError() {
+        <?php if (!empty($error)): ?>
+        var errorMessage = "<?php echo addslashes($error); ?>";
+        alert(errorMessage);
+        return false;
+        <?php endif; ?>
+        return true;
+    }
+    </script>
+
     <div id="overlay">
         <div id="box">
             <form method="post" onsubmit="return PopupError();">
@@ -111,19 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <h1>Koju top receptes</h1>
         <p>"Oho, šīs receptes ir tā vērtas!" -Gordons Remzijs</p>
     </div>
-
-
-    <script>
-        function PopupError() {
-            var errorMessage = "<?php echo $error; ?>";
-            if (errorMessage !== "") {
-                alert(errorMessage);
-                return false;
-            }
-            return true;
-        }
-    </script>
-
 
 </body>
 

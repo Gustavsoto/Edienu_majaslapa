@@ -23,7 +23,8 @@ session_start();
     </head>
     <body>
         <!--banneris-->
-        <div class="banneris" style="padding: 30px;
+        <div class="banneris" style="padding-top: 70px;
+        padding-bottom: 5px;
         text-align: center;
         background: #1abc9c;
         color: white;
@@ -33,7 +34,7 @@ session_start();
 			<p>Sveicināts, <?php echo $user_data['user_name']; ?> </p>
         </div>
         <!--navigācija-->
-        <nav class="navbar navbar-expand p-2">
+        <nav class="navbar fixed-top navbar-expand p-2" style="padding-top: 56px; background-color: white;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,7 +50,7 @@ session_start();
           </nav>
   
         <!--bildes-->
-        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4" style="padding:10px">
             <img src="./pictures/cepti_pelmeni.jpg" class="img" alt="bilde1">
             <img src="./pictures/debesmanna.jpg" class="img" alt="bilde2">
             <img src="./pictures/Kesadijas.jpg" class="img" alt="bilde3">
@@ -457,7 +458,7 @@ session_start();
                   </div>
             </div>
         </div>
-        <div style="width: 450px; height: 500px; background-color: grey; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto;">
+        <div style="width: 100%; height: 500px; background-color: grey; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto;">
           <h2>Ko tu domā par šo mājas lapu?</h2>
           <form>
               <div class="form-group">
